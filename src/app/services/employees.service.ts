@@ -12,7 +12,11 @@ export class EmployeesService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public getEmployees() {
-    return this.httpClient.get(`${this.baseUrl}${this.employeesUrl}`);
+  public getEmployees(pageSize:number, pageNumber: number) {
+    return this.httpClient.get(`${this.baseUrl}${this.employeesUrl}?pageSize=${pageSize}&pageNumber=${pageNumber}`);
   }
 }
+
+
+
+// http://localhost:8080/employees?pageSize=7&pageNumber=50
